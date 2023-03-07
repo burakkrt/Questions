@@ -20,5 +20,8 @@
   "homepage": "https://github.com/burakkrt/Questions-PureJavascript#readme",
   "dependencies": {
     "node": "^19.6.1"
+  },
+  "devDependencies": {
+    "prettier": "2.8.4"
   }
 }
