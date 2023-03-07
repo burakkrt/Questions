@@ -1,0 +1,24 @@
+{
+  "name": "questions-purejavascript",
+  "version": "1.0.0",
+  "description": "An application where you can solve and repeat simple English questions with Pure Javascript, Tailwind Css and Sass.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burakkrt/Questions-PureJavascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burakkrt/Questions-PureJavascript/issues"
+  },
+  "homepage": "https://github.com/burakkrt/Questions-PureJavascript#readme",
+  "dependencies": {
+    "node": "^19.6.1"
+  }
+}
