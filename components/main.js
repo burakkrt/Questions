@@ -1,21 +1,24 @@
-import MenuItems, { htmlMenuElements } from './menuItems.js';
-import QuestionsCreated, { questionObjects } from './questionsCreated.js';
+import MenuItems from './menuItems.js';
+import QuestionObject from './questionObject.js';
 import Message from './message.js';
-import createCheck from './createCheck.js';
+import CreateCheck from './createCheck.js';
+import questionDOM from './questionDOM.js';
+
+// Show functions to window
+window.createdQuestions = createdQuestions;
 
 // Menu Item Created
 const menuElement = document.querySelector('#menuContent');
 MenuItems(menuElement);
 
+// Created Question and Export to DOM
 const contentElement = document.querySelector('#questionContent');
 function createdQuestions(questionTitle) {
-    const checkResult = createCheck(questionTitle);
+    const checkResult = CreateCheck(questionTitle);
     if (checkResult.check) {
-        QuestionsCreated(contentElement, questionTitle, checkResult.questionNumber, checkResult.type);
+        QuestionObject(questionTitle, checkResult.questionNumber, checkResult.type);
     }
 }
-
-window.createdQuestions = createdQuestions;
 
 document.querySelector('#burgerMenu').addEventListener('click', () => {
     const menu = document.querySelector('#menu');
@@ -44,29 +47,3 @@ document.querySelector('#burgerMenu').addEventListener('click', () => {
         burgerMenu.parentElement.classList.add('pr-5');
     }
 });
-
-// for (const [key] of Object.entries(htmlMenuElements)) {
-//   if (key === questionType) {
-//       const inputElement = document.getElementById(htmlMenuElements[key]['question-number-input-id']);
-//       if (inputElement.value > 0 && inputElement.value != '' && inputElement.value != null) {
-//           if (inputElement.value < 50) {
-//               // success question created
-//               if (document.getElementById(htmlMenuElements[key][`just-question-id`]).checked) {
-//                   QuestionsCreated(contentElement, key, inputElement.value, true);
-//               } else QuestionsCreated(contentElement, key, inputElement.value, false);
-//           } else {
-//               inputElement.value = '';
-//               inputElement.setAttribute('placeholder', 'Max. 50');
-//               if (!inputElement.className.includes('border-2 border-red-800')) {
-//                   inputElement.classList.add('border-2', 'border-red-800');
-//               }
-//           }
-//       } else {
-//           inputElement.value = '';
-//           inputElement.setAttribute('placeholder', 'only positive');
-//           if (!inputElement.className.includes('border-2 border-red-800')) {
-//               inputElement.classList.add('border-2', 'border-red-800');
-//           }
-//       }
-//   }
-// }
