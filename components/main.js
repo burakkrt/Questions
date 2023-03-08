@@ -1,5 +1,5 @@
 import ObjectsCreated, { questionObjects } from './objectsCreated.js';
-import MenuItems from './_menuItems.js';
+import MenuItems from './menuItems.js';
 
 // Menu Item Created
 const menuElement = document.querySelector('#menuContent');
