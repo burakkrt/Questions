@@ -41,17 +41,17 @@ export default function MenuItems(menuElement) {
                 <div class="flex flex-row items-center gap-x-3">
                     <div>
                         <div>
-                            <input type="checkbox" name="" id="${menu['just-question-id']}" />
-                            <label for="">Sadece soru</label>
+                            <input type="checkbox" name="just-question" id="${menu['just-question-id']}" checked="true" />
+                            <label for="${menu['just-question-id']}" class="cursor-pointer">Sadece soru</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="" id="${menu['question-and-answer-id']}" />
-                            <label for="">Soru ve cevap</label>
+                            <input type="checkbox" name="question-and-answer-id" id="${menu['question-and-answer-id']}" />
+                            <label for="${menu['question-and-answer-id']}" class="cursor-pointer">Soru ve cevap</label>
                         </div>
                     </div>
-                    <input type="text" class="question-number-input px-1" placeholder="Default 0 questions" id="${menu['question-number-input-id']}" />
+                    <input type="number" class="question-number-input px-1" placeholder="Default 0 questions" id="${menu['question-number-input-id']}" />
                     <button
-                        onclick="createdQouestions(${key})"
+                        onclick="createdQuestions('${key}')"
                         class="rounded-md bg-slate-500 py-1 px-2 text-stone-200"
                     >
                         Create
