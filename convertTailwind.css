@@ -13,3 +13,7 @@
 .hidden {
     display: none;
 }
+
+.question-number-input {
+    width: 150px;
+}

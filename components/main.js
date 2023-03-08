@@ -1,8 +1,13 @@
 import ObjectsCreated, { questionObjects } from './objectsCreated.js';
+import MenuItems from './_menuItems.js';
 
-ObjectsCreated('numbers-alphabet', 4, true);
+// Menu Item Created
+const menuElement = document.querySelector('#menuContent');
+MenuItems(menuElement);
 
-console.log(questionObjects);
+// ObjectsCreated('numbers-alphabet', 4, true);
+
+// console.log(questionObjects);
 
 // window.clickFunc = clickFunc;
 
