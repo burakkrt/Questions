@@ -1,8 +1,11 @@
-import ObjectsCreated, { questionObjects } from './_objectsCreated.js';
+import { Questions } from '../data.js';
+import ObjectsCreated, { questionObjects } from './objectsCreated.js';
 
-ObjectsCreated('numbers-alphabet', 4, true);
+// ObjectsCreated('numbers-alphabet', 4, true);
 
-console.log(questionObjects);
+// console.log(questionObjects);
+
+console.log(Questions['to-meet']);
 
 // window.clickFunc = clickFunc;
 
