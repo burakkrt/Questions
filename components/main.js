@@ -1,12 +1,10 @@
 import ObjectsCreated, { questionObjects } from './_objectsCreated.js';
 
-ObjectsCreated('numbers-alphabet', 4, true);
+// ObjectsCreated('numbers-alphabet', 4, true);
 
-console.log(questionObjects);
+// console.log(questionObjects);
 
-function clickFunc(e, value) {}
-
-window.clickFunc = clickFunc;
+// window.clickFunc = clickFunc;
 
 document.querySelector('#burger-menu').addEventListener('click', () => {
     const menu = document.querySelector('#menu');
@@ -27,17 +25,11 @@ document.querySelector('#burger-menu').addEventListener('click', () => {
     } else menuConttent.classList.remove('hidden');
 
     if (burgerMenu.parentElement.className.includes('text-right')) {
-        let newClass = burgerMenu.parentElement.className.replace(
-            'text-right',
-            'text-center'
-        );
+        let newClass = burgerMenu.parentElement.className.replace('text-right', 'text-center');
         burgerMenu.parentElement.classList = newClass;
         burgerMenu.parentElement.classList.remove('pr-5');
     } else {
-        let newClass = burgerMenu.parentElement.className.replace(
-            'text-center',
-            'text-right'
-        );
+        let newClass = burgerMenu.parentElement.className.replace('text-center', 'text-right');
         burgerMenu.parentElement.classList = newClass;
         burgerMenu.parentElement.classList.add('pr-5');
     }
