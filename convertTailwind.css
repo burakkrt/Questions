@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-center {
+    text-align: center;
+}
+
+.w-16 {
+    width: 4rem;
+}
+
+.hidden {
+    display: none;
+}
+
 .header-bar {
     /* min-width: 460px; */
 }
