@@ -1,4 +1,3 @@
-import { Questions } from '../data.js';
 import ObjectsCreated, { questionObjects } from './objectsCreated.js';
 
 ObjectsCreated('numbers-alphabet', 4, true);
@@ -7,11 +6,10 @@ console.log(questionObjects);
 
 // window.clickFunc = clickFunc;
 
-document.querySelector('#burger-menu').addEventListener('click', () => {
+document.querySelector('#burgerMenu').addEventListener('click', () => {
     const menu = document.querySelector('#menu');
     const menuConttent = document.querySelector('#menuContent');
-    const burgerMenu = document.querySelector('#burger-menu');
-    console.log(menuConttent.parentElement);
+    const burgerMenu = document.querySelector('#burgerMenu');
 
     if (menu.className.includes('max-w-md')) {
         let newClass = menu.className.replace('max-w-md', 'w-16');
