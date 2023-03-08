@@ -1,13 +1,212 @@
 <!DOCTYPE html>
 <html lang="en-tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="components/style.css" />
-    <title>Questions</title>
-  </head>
-  <body>
-    <script type="module" src="components/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="components/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>Questions</title>
+    </head>
+    <body>
+        <d iv class="flex h-screen flex-row">
+            <!-- sorular content -->
+            <div class="flex-auto overflow-y-scroll bg-slate-400 p-3">
+                <div class="grid gap-3 xl:grid-cols-2">
+                    <!-- col -->
+                    <div class="rounded-md bg-slate-300">
+                        <!-- card -->
+                        <div class="flex h-full flex-col">
+                            <!-- card header -->
+                            <div
+                                class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            >
+                                <div>
+                                    <p>Question No</p>
+                                </div>
+                                <div>
+                                    <button class="mr-2">
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                    </button>
+                                    <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                </div>
+                            </div>
+                            <!-- card content -->
+                            <div class="flex-auto p-2">
+                                <div class="flex h-full flex-col justify-between gap-y-2">
+                                    <div>
+                                        <span>Question :</span>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, et.</p>
+                                        <div class="">
+                                            <p class="">Lorem ipsum dolor sit amet consectetur.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>Answer :</span>
+                                        <input class="block w-full px-1" type="text" />
+                                        <button
+                                            class="mt-2 rounded-md bg-slate-400 px-4 py-1.5"
+                                            onclick="clickFunc(event,5)"
+                                        >
+                                            Test
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- col -->
+                    <div class="rounded-md bg-slate-300">
+                        <!-- card -->
+                        <div class="flex h-full flex-col">
+                            <!-- card header -->
+                            <div
+                                class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            >
+                                <div>
+                                    <p>Question No</p>
+                                </div>
+                                <div>
+                                    <button class="mr-2">
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                    </button>
+                                    <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                </div>
+                            </div>
+                            <!-- card content -->
+                            <div class="flex-auto p-2">
+                                <div class="flex h-full flex-col justify-between gap-y-2">
+                                    <div>
+                                        <span>Question :</span>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                        <div class="">
+                                            <p class=""></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>Answer :</span>
+                                        <input class="block w-full px-1" type="text" />
+                                        <button
+                                            class="mt-2 rounded-md bg-slate-400 px-4 py-1.5"
+                                            onclick="clickFunc(event,5)"
+                                        >
+                                            Test
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- col -->
+                    <div class="rounded-md bg-slate-300">
+                        <!-- card -->
+                        <div class="flex h-full flex-col">
+                            <!-- card header -->
+                            <div
+                                class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            >
+                                <div>
+                                    <p>Question No</p>
+                                </div>
+                                <div>
+                                    <button class="mr-2">
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                    </button>
+                                    <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                </div>
+                            </div>
+                            <!-- card content -->
+                            <div class="flex-auto p-2">
+                                <div class="flex h-full flex-col justify-between gap-y-2">
+                                    <div>
+                                        <span>Question :</span>
+                                        <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, veritatis
+                                            eos consequuntur odit sequi dolorum necessitatibus culpa aliquid aliquam hic
+                                            nam sed iste voluptatum eum voluptatibus minus velit tenetur saepe.
+                                        </p>
+                                        <div class="">
+                                            <p class="">Lorem ipsum dolor sit amet consectetur.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>Answer :</span>
+                                        <input class="block w-full px-1" type="text" />
+                                        <button
+                                            class="mt-2 rounded-md bg-slate-400 px-4 py-1.5"
+                                            onclick="clickFunc(event,5)"
+                                        >
+                                            Test
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- col -->
+                    <div class="rounded-md bg-slate-300">
+                        <!-- card -->
+                        <div class="flex h-full flex-col">
+                            <!-- card header -->
+                            <div
+                                class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            >
+                                <div>
+                                    <p>Question No</p>
+                                </div>
+                                <div>
+                                    <button class="mr-2">
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                    </button>
+                                    <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                </div>
+                            </div>
+                            <!-- card content -->
+                            <div class="flex-auto p-2">
+                                <div class="flex h-full flex-col justify-between gap-y-2">
+                                    <div>
+                                        <span>Question :</span>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                        <div class="">
+                                            <p class=""></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>Answer :</span>
+                                        <input class="block w-full px-1" type="text" />
+                                        <button
+                                            class="mt-2 rounded-md bg-slate-400 px-4 py-1.5"
+                                            onclick="clickFunc(event,5)"
+                                        >
+                                            Test
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- menu -->
+            <div class="max-w-md flex-none bg-red-300" id="menu">
+                <div class="block py-4 pr-5 text-right">
+                    <button id="burger-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <div class="menu-content" id="menuContent">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem est necessitatibus corrupti
+                    fuga neque id enim minus sit quis nemo accusamus incidunt, vero totam assumenda? Recusandae
+                    veritatis ab consequuntur omnis.
+                </div>
+            </div>
+        </d>
+        <script type="module" src="components/main.js"></script>
+    </body>
 </html>
