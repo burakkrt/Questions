@@ -1,5 +1,5 @@
-// import { Questions } from '../data.js';
-// import QuestionClass from './_questionObject.js';
+import { Questions } from '../data.js';
+import QuestionClass from './_questionObject.js';
 
 export const questionObjects = [];
 

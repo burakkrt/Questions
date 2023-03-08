@@ -1,8 +1,8 @@
-// import ObjectsCreated, { questionObjects } from './_objectsCreated.js';
+import ObjectsCreated, { questionObjects } from './_objectsCreated.js';
 
-// ObjectsCreated('numbers-alphabet', 4, true);
+ObjectsCreated('numbers-alphabet', 4, true);
 
-// console.log(questionObjects);
+console.log(questionObjects);
 
 // window.clickFunc = clickFunc;
 
