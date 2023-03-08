@@ -2,3 +2,4 @@ node_modules
 package*
 .prettierrc
 style.css
+convertTailwind.css
