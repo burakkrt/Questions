@@ -4,13 +4,35 @@ export default function questionDOM(questionsArray, contentElement) {
             // local stroage 'den gelen tüm sorular burada doma aktıralacak
             // aktarım sonrasında bilgilendirme mesajı gösterilecek.
             // DOM 'a aktarım işleminde hız sorunlarına dikkat edilecek.
+
             contentElement.innerHTML = '';
 
             questionsArray.map((question, index) => {
+                let questionTurkishElement = '';
+                let answerTurkishElement = '';
                 console.log(question);
+
+                if (question.questionTurkish != '') {
+                    questionTurkishElement = `
+                        <div class="opacity-60">
+                            <span class="font-medium">Turkish :</span>
+                            <p class="inline">${question.questionTurkish}</p>
+                        </div>
+                    `;
+                }
+
+                if (question.answerTurkish != '') {
+                    answerTurkishElement = `
+                    <div class="opacity-60 mb-0.5">
+                        <span class="font-medium">Turkish :</span>
+                        <p class="inline">${question.answerTurkish}</p>
+                    </div>
+                    `;
+                }
+
                 let element = `
                 <!-- col -->
-                <div class="rounded-md bg-slate-300" id="${question.objectId}">
+                <div class="question-box rounded-md bg-slate-300" id="${question.objectId}">
                     <!-- card -->
                     <div class="flex h-full flex-col">
                         <!-- card header -->
@@ -29,23 +51,28 @@ export default function questionDOM(questionsArray, contentElement) {
                         </div>
                         <!-- card content -->
                         <div class="flex-auto p-2">
-                            <div class="flex h-full flex-col justify-between gap-y-2">
+                            <div class="flex h-full flex-col justify-between gap-y-5">
                                 <div>
-                                    <span>Question :</span>
-                                    <p>${question.question}</p>
-                                    <div class="">
-                                        <p class="">${question.questionTurkish}</p>
+                                    <div>
+                                        <span class="font-medium">Question :</span>
+                                        <p class="inline">${question.question}</p>
                                     </div>
+                                    ${questionTurkishElement}
                                 </div>
-                                <div>
-                                    <span>Answer :</span>
-                                    <input class="block w-full px-1" type="text" id="input${question.objectId}" />
-                                    <button
-                                        class="mt-2 rounded-md bg-slate-400 px-4 py-1.5"
-                                        onclick="resultCheck(${question.objectId})"
-                                    >
-                                        Test
-                                    </button>
+                                <div id="resultDiv${question.objectId}">
+                                    ${answerTurkishElement}
+                                    <div class="flex flex-row content-center items-center gap-x-3">
+                                        <span class="font-medium">Answer :</span>
+                                        <input class="user-answer flex-auto px-1 text-slate-900" type="text" id="input${
+                                            question.objectId
+                                        }" />
+                                        <button
+                                        class="rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                            onclick="resultCheck(${question.objectId})"
+                                        >
+                                            Reply
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
