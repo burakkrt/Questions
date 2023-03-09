@@ -2,7 +2,12 @@ import { Questions } from '../data.js';
 import QuestionClass from './questionClass.js';
 import questionDOM from './questionDOM.js';
 
-export default function ObjectsCreated(dataName = String, questionNumber = Number, justQuestion = Boolean) {
+export default function ObjectsCreated(
+    dataName = String,
+    questionNumber = Number,
+    justQuestion = Boolean,
+    contentElement
+) {
     const questionObjects = [];
 
     if (!JSON.parse(localStorage.getItem('questions'))) {
@@ -38,5 +43,5 @@ export default function ObjectsCreated(dataName = String, questionNumber = Numbe
 
     localStorage.setItem('questions', JSON.stringify(questionObjects));
     //Function to process all questions in memory to dom
-    questionDOM(JSON.parse(localStorage.getItem('questions')));
+    questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
 }
