@@ -130,10 +130,55 @@
     --tw-bg-opacity: 1;
     background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
+.inline-block {
+    display: inline-block;
+}
+.bg-red-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+.inline {
+    display: inline;
+}
+.opacity-60 {
+    opacity: 0.6;
+}
+.mt-1 {
+    margin-top: 0.25rem;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.text-green-400 {
+    --tw-text-opacity: 1;
+    color: rgb(74 222 128 / var(--tw-text-opacity));
+}
+.gap-y-5 {
+    row-gap: 1.25rem;
+}
+.text-slate-900 {
+    --tw-text-opacity: 1;
+    color: rgb(15 23 42 / var(--tw-text-opacity)) !important;
+}
 
 .bg-slate-400 {
     --tw-bg-opacity: 1;
     background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+.text-slate-700 {
+    --tw-text-opacity: 1;
+    color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+.duration-150 {
+    transition-duration: 150ms;
+}
+.hover\:bg-slate-500:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+.hover\:text-slate-200:hover {
+    --tw-text-opacity: 1;
+    color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .bg-slate-500 {
@@ -233,11 +278,15 @@
 .cursor-pointer {
     cursor: pointer;
 }
-
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
 .mb-2 {
     margin-bottom: 0.5rem;
 }
-
+.mb-0\.5 {
+    margin-bottom: 0.125rem;
+}
 .border-2 {
     border-width: 2px;
 }
@@ -260,6 +309,10 @@
 
 .items-center {
     align-items: center;
+}
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 .gap-x-3 {
@@ -387,6 +440,10 @@
     display: none;
 }
 
+.font-thin {
+    font-weight: 100;
+}
+
 .question-number-input {
     width: 150px;
 }
@@ -396,16 +453,32 @@
     border-color: rgb(153 27 27 / var(--tw-border-opacity));
 }
 
+.opacity-70 {
+    opacity: 0.7;
+}
+
 .pointer-events-none {
     pointer-events: none;
 }
 
-.passive {
+.message-box.passive {
     transform: translateX(101%);
     bottom: 20px;
     right: 0px;
 }
 
-.active {
+.message-box.active {
     transform: translateX(-2%);
+}
+
+.question-box {
+    transition: all 150ms ease-in-out;
+}
+
+.question-box.false {
+    /* filter: brightness(50%); */
+    opacity: 0.5;
+    background: brown;
+    color: white;
+    pointer-events: none;
 }
