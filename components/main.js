@@ -23,7 +23,7 @@ function createdQuestions(questionTitle) {
 }
 
 // Questios Local Stroage Export Dom Content
-questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
+// questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
 
 function resultCheck(objectId) {
     let objectIs;
