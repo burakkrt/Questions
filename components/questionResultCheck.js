@@ -1,29 +1,42 @@
 import setLocalStroage from './setLocalStroage.js';
 
-export default function questionResultCheck(thisObject, userValue) {
-    // console.log(object);
-    // console.log(userValue);
-    // const stroageObjects = JSON.parse(localStorage.getItem('questions'));
-
-    // User answer check
-    let modifiedUserAnswer = userValue.replace(/[ !"#$%&'()*+,-./:;<=>?@[_`{|}~']/g, '').toLowerCase();
-    let trueAnswer = thisObject.answer.replace(/[ !"#$%&'()*+,-./:;<=>?@[_`{|}~']/g, '').toLowerCase();
-
-    if (trueAnswer === modifiedUserAnswer) {
-        setLocalStroage(thisObject, true);
-        return true;
+function setQuestionDOM(selectObjectId = Number, trueAnswer = String, state = Boolean) {
+    if (state) {
     } else {
-        setLocalStroage(thisObject, false, userValue);
-        document.getElementById(thisObject.objectId).classList.add('false'); //Css .question-box.false class
         let element = `
             <div class="mt-1 bg-red-900 p-2">
                 <span class="font-semibold text-green-400">Correct answer :</span>
                 <p class="inline">
-                    2Selam Kaira. Ben Burak. Tanıştığımıza memnun oldum. (Pilisdt tu mit yu)
+                    ${trueAnswer}
                 </p>
             </div>
         `;
-        document.getElementById(`resultDiv${thisObject.objectId}`).insertAdjacentHTML('beforeend', element);
+        document.getElementById(`resultDiv${selectObjectId}`).insertAdjacentHTML('beforeend', element);
+    }
+
+    // Question DOM False or True Style
+    document.getElementById(selectObjectId).classList.add(state); //Css .question-box.false class
+}
+
+export default function questionResultCheck(selectObjectId, userValue) {
+    let selectObject;
+    for (let object of JSON.parse(localStorage.getItem('questions'))) {
+        if (selectObjectId === object.objectId) {
+            selectObject = object;
+            break;
+        }
+    }
+
+    let modifiedUserAnswer = userValue.replace(/[ !"#$%&'()*+,-./:;<=>?@[_`{|}~']/g, '').toLowerCase();
+    let trueAnswer = selectObject.answer.replace(/[ !"#$%&'()*+,-./:;<=>?@[_`{|}~']/g, '').toLowerCase();
+
+    if (modifiedUserAnswer === trueAnswer) {
+        setLocalStroage(selectObject, true);
+        setQuestionDOM(selectObject.objectId, selectObject.answer, true);
+        return true;
+    } else {
+        setLocalStroage(selectObject, false, userValue);
+        setQuestionDOM(selectObject.objectId, selectObject.answer, false);
         return false;
     }
 }
