@@ -12,14 +12,13 @@ export default function ObjectsCreated(
 
     if (!JSON.parse(localStorage.getItem('questions'))) {
         localStorage.setItem('questions', JSON.stringify(''));
-    }
-
-    const stroageQuestions = JSON.parse(localStorage.getItem('questions'));
-
-    if (stroageQuestions) {
-        stroageQuestions.map(question => {
-            questionObjects.push(question);
-        });
+    } else {
+        const stroageQuestions = JSON.parse(localStorage.getItem('questions'));
+        if (stroageQuestions) {
+            stroageQuestions.map(question => {
+                questionObjects.push(question);
+            });
+        } else console.log('No question records found in browser memory.');
     }
 
     for (let i = 0; i < questionNumber; i++) {
@@ -41,6 +40,7 @@ export default function ObjectsCreated(
         }
     }
 
+    // Update local stroage .
     localStorage.setItem('questions', JSON.stringify(questionObjects));
     //Function to process all questions in memory to dom
     questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
