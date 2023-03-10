@@ -1,6 +1,6 @@
 import MenuItems from './menuItems.js';
 import QuestionObject from './questionObject.js';
-import CreateCheck from './createCheck.js';
+import CreateCheck from './questionCreateCheck.js';
 import questionDOM from './questionDOM.js';
 import questionResultCheck from './questionResultCheck.js';
 import Message from './message.js';
