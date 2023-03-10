@@ -1,9 +1,9 @@
 import MenuItems from './menuItems.js';
 import QuestionObject from './questionObject.js';
-import Message from './message.js';
 import CreateCheck from './createCheck.js';
 import questionDOM from './questionDOM.js';
 import questionResultCheck from './questionResultCheck.js';
+import Message from './message.js';
 
 // Show functions to window
 window.createdQuestions = createdQuestions;
@@ -23,19 +23,12 @@ function createdQuestions(questionTitle) {
 }
 
 // Questios Local Stroage Export Dom Content
-// questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
+questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
 
+// User value check
 function resultCheck(objectId) {
-    let objectIs;
-    for (let object of JSON.parse(localStorage.getItem('questions'))) {
-        if (objectId === object.objectId) {
-            objectIs = object;
-            break;
-        }
-    }
-
-    const questionResult = questionResultCheck(objectIs, document.getElementById(`input${objectId}`).value);
-    console.log(questionResult);
+    const userValue = document.getElementById(`input${objectId}`).value;
+    questionResultCheck(objectId, userValue);
 }
 
 document.querySelector('#burgerMenu').addEventListener('click', () => {
