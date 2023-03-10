@@ -1,38 +1,48 @@
+function createTurkishElement(value, valueType) {
+    // True question , false answer
+    if (value != '') {
+        return `
+        <div class="opacity-60">
+            <span class="font-medium">Turkish :</span>
+            <p class="inline">${value}</p>
+        </div>
+`;
+    } else return '';
+}
+
+function returnAnswer(question) {
+    if (question.resultState == false) {
+        return `
+        <div>
+            <span class="font-semibold text-green-400">Correct answer :</span>
+            <p class="inline">
+                ${question.answer}
+            </p>
+        </div>
+    `;
+    } else return '';
+}
+
+function returnInputValue(question) {
+    if (question.resultState !== null) {
+        if (question.resultState) {
+            return `value="${question.answer}"`;
+        } else if (question.userAnswer !== null) {
+            return `value="${question.userAnswer}"`;
+        } else return;
+    } else return;
+}
+
 export default function questionDOM(questionsArray, contentElement) {
-    if (questionsArray) {
-        if (questionsArray.length > 0) {
-            // local stroage 'den gelen tüm sorular burada doma aktıralacak
-            // aktarım sonrasında bilgilendirme mesajı gösterilecek.
-            // DOM 'a aktarım işleminde hız sorunlarına dikkat edilecek.
+    contentElement.innerHTML = '';
 
-            contentElement.innerHTML = '';
+    if (questionsArray && questionsArray.length > 0) {
+        questionsArray.map((question, index) => {
+            console.log(question);
 
-            questionsArray.map((question, index) => {
-                let questionTurkishElement = '';
-                let answerTurkishElement = '';
-                console.log(question);
-
-                if (question.questionTurkish != '') {
-                    questionTurkishElement = `
-                        <div class="opacity-60">
-                            <span class="font-medium">Turkish :</span>
-                            <p class="inline">${question.questionTurkish}</p>
-                        </div>
-                    `;
-                }
-
-                if (question.answerTurkish != '') {
-                    answerTurkishElement = `
-                    <div class="opacity-60 mb-0.5">
-                        <span class="font-medium">Turkish :</span>
-                        <p class="inline">${question.answerTurkish}</p>
-                    </div>
-                    `;
-                }
-
-                let element = `
+            let element = `
                 <!-- col -->
-                <div class="question-box rounded-md bg-slate-300" id="${question.objectId}">
+                <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
                     <!-- card -->
                     <div class="flex h-full flex-col">
                         <!-- card header -->
@@ -57,30 +67,34 @@ export default function questionDOM(questionsArray, contentElement) {
                                         <span class="font-medium">Question :</span>
                                         <p class="inline">${question.question}</p>
                                     </div>
-                                    ${questionTurkishElement}
+                                    ${createTurkishElement(question.questionTurkish)}
                                 </div>
                                 <div id="resultDiv${question.objectId}">
-                                    ${answerTurkishElement}
+                                ${createTurkishElement(question.answerTurkish)}
                                     <div class="flex flex-row content-center items-center gap-x-3">
                                         <span class="font-medium">Answer :</span>
-                                        <input class="user-answer flex-auto px-1 text-slate-900" type="text" id="input${
-                                            question.objectId
-                                        }" />
+                                        <input class="user-answer ${
+                                            question.resultState
+                                        } flex-auto px-1 text-slate-900" type="text" id="input${
+                question.objectId
+            }" ${returnInputValue(question)} />
                                         <button
-                                        class="rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                        class="reply-button ${
+                                            question.resultState
+                                        } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
                                             onclick="resultCheck(${question.objectId})"
                                         >
                                             Reply
                                         </button>
                                     </div>
+                                    ${returnAnswer(question)}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
               `;
-                contentElement.innerHTML += element;
-            });
-        }
+            contentElement.innerHTML += element;
+        });
     } else console.log('önce soru oluştur');
 }
