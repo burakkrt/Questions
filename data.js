@@ -55,7 +55,7 @@ export const Questions = {
     {id:8, question:"What's new ?", answer:"Not much.", questionTurkish:"Hayatında yeni bir şeyler var mı ?", answerTurkish:"Fazla bir yenilik yok."},
     {id:9, question:"Is everything alright ?", answer:"Yes, everything is OK", questionTurkish:"Her şey yolunda mı ?", answerTurkish:"Evet, her şey yolunda."},
     {id:10, question:"What’s going on ?", answer:"Keeping busy", questionTurkish:"Neler yapıyorsun, hayatında neler oluyor ?", answerTurkish:"Meşgulum, uğraşıp duruyorum.(Keping bizi)"},
-    {id:11, question:"How is business ?", answer:"Same as usual", questionTurkish:"İşler nasıl ?", answerTurkish:"Her zamanki gibi. (Seym es yüjıvo"},
+    {id:11, question:"How is business ?", answer:"Same as usual", questionTurkish:"İşler nasıl ?", answerTurkish:"Her zamanki gibi. (Seym es yüjıvo)"},
     {id:12, question:"Are you OK?", answer:"I am OK. Thanks for asking.", questionTurkish:"İyi misin ?", answerTurkish:"İyiyim. questionduğun için teşekkürler."},
     {id:13, question:"How are you feeling ?", answer:"I'm tired.And you ?", questionTurkish:"Nasıl hissediyorsun ?", answerTurkish:"Yorgunum (I'm). Sen nasıl hissediyorsun ?(and)"},
     {id:14, question:"How are you feeling ?", answer:"I'm cool", questionTurkish:"Nasıl hissediyorsun ?", answerTurkish:"Ben iyiyim.(I'm)"},
