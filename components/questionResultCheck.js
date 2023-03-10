@@ -1,10 +1,10 @@
 import setLocalStroage from './setLocalStroage.js';
 
-function setQuestionDOM(selectObjectId = Number, trueAnswer = String, state = Boolean) {
+export function setQuestionDOM(selectObjectId = Number, trueAnswer = String, state = Boolean) {
     if (state) {
     } else {
         let element = `
-            <div class="mt-1 bg-red-900 p-2">
+            <div class="mt-1">
                 <span class="font-semibold text-green-400">Correct answer :</span>
                 <p class="inline">
                     ${trueAnswer}
