@@ -476,9 +476,17 @@
 }
 
 .question-box.false {
-    /* filter: brightness(50%); */
-    opacity: 0.5;
-    background: brown;
-    color: white;
+    filter: brightness(50%);
+    opacity: 0.7;
+    background: #a84448;
+    color: #eeeeee;
+    pointer-events: none;
+}
+
+.question-box.true {
+    filter: brightness(50%);
+    opacity: 0.7;
+    background: #539165;
+    color: #eeeeee;
     pointer-events: none;
 }
