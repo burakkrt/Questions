@@ -476,17 +476,28 @@
 }
 
 .question-box.false {
-    filter: brightness(50%);
-    opacity: 0.7;
+    filter: brightness(90%);
     background: #a84448;
     color: #eeeeee;
     pointer-events: none;
 }
 
 .question-box.true {
-    filter: brightness(50%);
-    opacity: 0.7;
+    filter: brightness(90%);
     background: #539165;
     color: #eeeeee;
     pointer-events: none;
+}
+
+.reply-button.false,
+.reply-button.true {
+    display: none !important;
+}
+
+.user-answer.false,
+.user-answer.true {
+    background: transparent;
+    color: #eeeeee !important;
+    margin: 0.25rem 0;
+    padding: 0 !important;
 }
