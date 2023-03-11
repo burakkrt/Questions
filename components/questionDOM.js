@@ -53,10 +53,14 @@ export default function questionDOM(questionsArray, contentElement) {
                                 <p>Question No : ${index + 1} (${question.objectId})</p>
                             </div>
                             <div>
-                                <button class="mr-2" onclick=(visibleAnswer(${question.objectId}))>
+                                <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
+                                    question.objectId
+                                })">
                                     <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
                                 </button>
-                                <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
+                                    question.objectId
+                                })"><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
                             </div>
                         </div>
                         <!-- card content -->
@@ -77,7 +81,7 @@ export default function questionDOM(questionsArray, contentElement) {
                                             question.resultState
                                         } flex-auto px-1 text-slate-900" type="text" id="input${
                 question.objectId
-            }" ${returnInputValue(question)} />
+            }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
                                         <button
                                         class="reply-button ${
                                             question.resultState
