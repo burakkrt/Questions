@@ -6,6 +6,7 @@ import questionResultCheck from './questionResultCheck.js';
 import questionVisibleAnswer from './questionVisibleAnswer.js';
 import Message from './message.js';
 import removeLocalStorage from './removeLocalStorage.js';
+import updatedStatisc from './updatedStatisc.js';
 
 // Show functions to window
 window.createdQuestions = createdQuestions;
@@ -13,40 +14,40 @@ window.resultCheck = resultCheck;
 window.visibleAnswer = visibleAnswer;
 window.deleteQuestion = deleteQuestion;
 window.keyPressInput = keyPressInput;
-
-// Menu Item Created
+window.showQuestionsFilter = showQuestionsFilter;
+window.deleteAllQuestions = deleteAllQuestions;
+// Element variables
 const menuElement = document.querySelector('#menuContent');
+const questionContentElement = document.getElementById('questionContent');
+const mainContentElement = document.getElementById('content');
+// Menu Item Created
 MenuItems(menuElement);
-
 // Created Question and Export to DOM
-const contentElement = document.getElementById('questionContent');
 function createdQuestions(questionTitle) {
     const checkResult = CreateCheck(questionTitle);
     if (checkResult.check) {
-        QuestionObject(questionTitle, checkResult.questionNumber, checkResult.type, contentElement);
+        QuestionObject(questionTitle, checkResult.questionNumber, checkResult.type, questionContentElement);
     }
 }
-
 // Questios Local Stroage Export Dom Content
-questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
-
+questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement);
 // User value check
 function resultCheck(objectId) {
     const userValue = document.getElementById(`input${objectId}`).value;
     questionResultCheck(objectId, userValue);
 }
-
+// User answer ınput keypress enter event
 function keyPressInput(event, objectId) {
     if (event.key === 'Enter') {
         resultCheck(objectId);
         document.activeElement.blur();
     }
 }
-
+// visible question answer and delete local storage
 function visibleAnswer(objectId) {
     questionVisibleAnswer(objectId);
 }
-
+// delete question local storage
 function deleteQuestion(objectId) {
     removeLocalStorage(objectId);
 
@@ -68,6 +69,29 @@ function deleteQuestion(objectId) {
         }
     }
 }
+
+function showQuestionsFilter(selectedView) {
+    switch (selectedView.value) {
+        case 'view-all-questions':
+            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, 'all');
+            break;
+        case 'view-unsolved':
+            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, null);
+            break;
+        case 'view-wrong':
+            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, false);
+            break;
+        case 'view-correct':
+            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, true);
+            break;
+    }
+}
+
+function deleteAllQuestions() {
+    localStorage.removeItem('questions');
+}
+
+updatedStatisc();
 
 document.querySelector('#burgerMenu').addEventListener('click', () => {
     const menu = document.querySelector('#menu');
@@ -96,40 +120,3 @@ document.querySelector('#burgerMenu').addEventListener('click', () => {
         burgerMenu.parentElement.classList.add('pr-5');
     }
 });
-
-// <!-- col -->
-// <div class="rounded-md bg-slate-300">
-//     <div class="flex h-full flex-col">
-//         <div
-//             class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
-//         >
-//             <div>
-//                 <p>Question No</p>
-//             </div>
-//             <div>
-//                 <button class="mr-2">
-//                     <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
-//                 </button>
-//                 <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
-//             </div>
-//         </div>
-//         <div class="flex-auto p-2">
-//             <div class="flex h-full flex-col justify-between gap-y-2">
-//                 <div>
-//                     <span>Question :</span>
-//                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, et.</p>
-//                     <div class="">
-//                         <p class="">Lorem ipsum dolor sit amet consectetur.</p>
-//                     </div>
-//                 </div>
-//                 <div>
-//                     <span>Answer :</span>
-//                     <input class="block w-full px-1" type="text" />
-//                     <button class="mt-2 rounded-md bg-slate-400 px-4 py-1.5" onclick="">
-//                         Test
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-// </div>
