@@ -1,3 +1,5 @@
+import Message from './message.js';
+
 export default function removeLocalStorage(selectedObjectId) {
     let localStroageObjects = [];
 
@@ -8,6 +10,7 @@ export default function removeLocalStorage(selectedObjectId) {
     });
 
     localStorage.setItem('questions', JSON.stringify(localStroageObjects));
+    Message(`Question ${selectedObjectId} has been deleted.`);
     console.log('This object in local storage has been deleted');
     console.log(JSON.parse(localStorage.getItem('questions')));
 }
