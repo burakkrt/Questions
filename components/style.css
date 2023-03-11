@@ -1203,6 +1203,20 @@ video {
   color: rgb(231 229 228 / var(--tw-text-opacity));
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .w-16 {
   width: 4rem;
 }
@@ -1256,6 +1270,13 @@ video {
 .question-box.true {
   filter: brightness(90%);
   background: #539165;
+  color: #eeeeee;
+  pointer-events: none;
+}
+
+.question-box.result-visible {
+  filter: brightness(90%);
+  background: #2c3333;
   color: #eeeeee;
   pointer-events: none;
 }
