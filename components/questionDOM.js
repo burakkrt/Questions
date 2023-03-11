@@ -53,7 +53,7 @@ export default function questionDOM(questionsArray, contentElement) {
                                 <p>Question No : ${index + 1} (${question.objectId})</p>
                             </div>
                             <div>
-                                <button class="mr-2">
+                                <button class="mr-2" onclick=(visibleAnswer(${question.objectId}))>
                                     <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
                                 </button>
                                 <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
