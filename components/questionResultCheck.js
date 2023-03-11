@@ -1,4 +1,4 @@
-import setLocalStroage from './setLocalStroage.js';
+import setLocalStroage from './setLocalStorage.js';
 
 export function setQuestionDOM(selectObjectId = Number, trueAnswer = String, state = Boolean) {
     if (state) {
