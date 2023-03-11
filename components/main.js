@@ -5,11 +5,14 @@ import questionDOM from './questionDOM.js';
 import questionResultCheck from './questionResultCheck.js';
 import questionVisibleAnswer from './questionVisibleAnswer.js';
 import Message from './message.js';
+import removeLocalStorage from './removeLocalStorage.js';
 
 // Show functions to window
 window.createdQuestions = createdQuestions;
 window.resultCheck = resultCheck;
 window.visibleAnswer = visibleAnswer;
+window.deleteQuestion = deleteQuestion;
+window.keyPressInput = keyPressInput;
 
 // Menu Item Created
 const menuElement = document.querySelector('#menuContent');
@@ -33,8 +36,37 @@ function resultCheck(objectId) {
     questionResultCheck(objectId, userValue);
 }
 
+function keyPressInput(event, objectId) {
+    if (event.key === 'Enter') {
+        resultCheck(objectId);
+        document.activeElement.blur();
+    }
+}
+
 function visibleAnswer(objectId) {
     questionVisibleAnswer(objectId);
+}
+
+function deleteQuestion(objectId) {
+    removeLocalStorage(objectId);
+
+    if (document.getElementById(objectId)) {
+        if (document.getElementById(objectId)) {
+            let thisQuestion = document.getElementById(objectId);
+            let countOpacity = 9;
+
+            const opacityInterval = setInterval(() => {
+                if (countOpacity <= 0) {
+                    document.getElementById('questionContent').removeChild(thisQuestion);
+                    clearTimeout(opacityInterval);
+                } else {
+                    document.getElementById(objectId).style = `opacity : 0.${countOpacity}`;
+                    countOpacity--;
+                    console.log(countOpacity);
+                }
+            }, 65);
+        }
+    }
 }
 
 document.querySelector('#burgerMenu').addEventListener('click', () => {
