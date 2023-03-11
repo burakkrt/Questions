@@ -3,11 +3,13 @@ import QuestionObject from './questionObject.js';
 import CreateCheck from './questionCreateCheck.js';
 import questionDOM from './questionDOM.js';
 import questionResultCheck from './questionResultCheck.js';
+import questionVisibleAnswer from './questionVisibleAnswer.js';
 import Message from './message.js';
 
 // Show functions to window
 window.createdQuestions = createdQuestions;
 window.resultCheck = resultCheck;
+window.visibleAnswer = visibleAnswer;
 
 // Menu Item Created
 const menuElement = document.querySelector('#menuContent');
@@ -29,6 +31,10 @@ questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
 function resultCheck(objectId) {
     const userValue = document.getElementById(`input${objectId}`).value;
     questionResultCheck(objectId, userValue);
+}
+
+function visibleAnswer(objectId) {
+    questionVisibleAnswer(objectId);
 }
 
 document.querySelector('#burgerMenu').addEventListener('click', () => {
