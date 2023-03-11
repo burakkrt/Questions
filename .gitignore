@@ -1,5 +1,5 @@
 node_modules
 package*
 .prettierrc
-style.css
+**/style.css
 convertTailwind.css
