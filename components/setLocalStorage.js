@@ -1,3 +1,5 @@
+import updatedStatisc from './updatedStatisc.js';
+
 export default function setLocalStroage(newObject, state, userAnswer = null) {
     let localStroageObjects = [];
 
@@ -16,4 +18,5 @@ export default function setLocalStroage(newObject, state, userAnswer = null) {
     localStorage.setItem('questions', JSON.stringify(localStroageObjects));
     console.log('Updated Local Storage');
     console.log(JSON.parse(localStorage.getItem('questions')));
+    updatedStatisc();
 }

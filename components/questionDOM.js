@@ -1,3 +1,5 @@
+import updatedStatisc from './updatedStatisc.js';
+
 function createTurkishElement(value, valueType) {
     // True question , false answer
     if (value != '') {
@@ -224,5 +226,6 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                 contentElement.innerHTML += element;
             }
         });
+        updatedStatisc();
     } else console.log('önce soru oluştur');
 }
