@@ -17,68 +17,58 @@
     <body>
         <div class="relative flex h-screen flex-row overflow-hidden">
             <!-- sorular content -->
-            <div class="flex-auto overflow-y-scroll bg-slate-400 p-3">
-                <div class="grid gap-3 xl:grid-cols-2" id="questionContent">
-                    <!-- col -->
-                    <div class="question-box rounded-md bg-slate-300" id="4355955">
-                        <div class="question-box rounded-md bg-slate-300" id="9522402">
-                            <!-- card -->
-                            <div class="flex h-full flex-col">
-                                <!-- card header -->
-                                <div
-                                    class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
-                                >
-                                    <div>
-                                        <p>Question No : 2 (9522402)</p>
-                                    </div>
-                                    <div>
-                                        <button class="mr-2">
-                                            <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
-                                        </button class="hover:text-red-300">
-                                        <button><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
-                                    </div>
-                                </div>
-                                <!-- card content -->
-                                <div class="flex-auto p-2">
-                                    <div class="flex h-full flex-col justify-between gap-y-5">
-                                        <div>
-                                            <div>
-                                                <span class="font-medium">Question :</span>
-                                                <p class="inline">I am from Turkey, how about you ?</p>
-                                            </div>
-
-                                            <div class="opacity-60">
-                                                <span class="font-medium">Turkish :</span>
-                                                <p class="inline">Türkiyeliyim, sen nerelisin ?</p>
-                                            </div>
-                                        </div>
-                                        <div id="resultDiv9522402">
-                                            <div class="mb-0.5 opacity-60">
-                                                <span class="font-medium">Turkish :</span>
-                                                <p class="inline">Ben Kanadalıyım.</p>
-                                            </div>
-
-                                            <div class="flex flex-row content-center items-center gap-x-3">
-                                                <span class="font-medium">Answer :</span>
-                                                <input
-                                                    class="user-answer flex-auto px-1 text-slate-900"
-                                                    type="text"
-                                                    id="input9522402"
-                                                />
-                                                <button
-                                                    class="rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
-                                                    onclick="resultCheck(9522402)"
-                                                >
-                                                    Reply
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="relative flex-auto overflow-y-scroll bg-slate-400" id="content">
+                <div class="sticky top-0 z-10 flex-row bg-slate-200 p-3" id="questionFilters" style="min-height: 5rem">
+                    <div class="grid grid-cols-5 gap-y-2 text-center">
+                        <div class="">
+                            <span>Total Question :</span>
+                            <span id="totalQuestion">0</span>
+                        </div>
+                        <div class="">
+                            <span>Correct answer :</span>
+                            <span id="totalCorrectAnswer">0</span>
+                        </div>
+                        <div class="">
+                            <span>Wrong answer :</span>
+                            <span id="totalWrongAnswer">0</span>
+                        </div>
+                        <div class="">
+                            <span>Solved:</span>
+                            <span id="totalSolved">0</span>
+                        </div>
+                        <div class="">
+                            <span>Unsolved:</span>
+                            <span id="totalUnsolved">0</span>
+                        </div>
+                        <div class="col-span-2 col-start-3 my-auto">
+                            <select
+                                name="select-view"
+                                id="selectView"
+                                class="w-max rounded-md border-2 border-stone-300 bg-slate-100 py-1 pl-1 pr-3 text-slate-700"
+                            >
+                                <option value="view-all-questions" class="">Show all questions</option>
+                                <option value="view-unsolved" class="">View unsolved questions</option>
+                                <option value="view-wrong" class="">Display only wrong questions</option>
+                                <option value="view-correct" class="">Display only correct questions</option>
+                            </select>
+                            <button
+                                class="rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-blue-500 hover:text-slate-200"
+                                onclick="showQuestionsFilter(selectView)"
+                            >
+                                Show
+                            </button>
+                        </div>
+                        <div class="col-start-5">
+                            <button
+                                class="rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-red-700 hover:text-slate-200"
+                                onclick="deleteAllQuestions()"
+                            >
+                                Delete all questions
+                            </button>
                         </div>
                     </div>
                 </div>
+                <div class="grid gap-3 p-3 xl:grid-cols-2" id="questionContent"></div>
             </div>
             <!-- menu -->
             <div class="min-w-sm flex-none bg-red-300 px-3" id="menu">

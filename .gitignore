@@ -1,5 +1,7 @@
 node_modules
 package*
 .prettierrc
-style.css
-convertTailwind.css
+
+
+# Untracked files:
+components/style.css
