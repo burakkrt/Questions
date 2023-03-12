@@ -31,5 +31,11 @@ export default function updatedStatisc() {
                 document.getElementById('totalUnsolved').textContent = unsolvedCount;
             }
         }
-    } else console.log('Error ! No questions found in local storage.');
+    } else {
+        document.getElementById('totalQuestion').textContent = 0;
+        document.getElementById('totalCorrectAnswer').textContent = 0;
+        document.getElementById('totalWrongAnswer').textContent = 0;
+        document.getElementById('totalSolved').textContent = 0;
+        document.getElementById('totalUnsolved').textContent = 0;
+    }
 }
