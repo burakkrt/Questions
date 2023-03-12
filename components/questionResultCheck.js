@@ -1,4 +1,5 @@
 import setLocalStroage from './setLocalStorage.js';
+import updatedStatisc from './updatedStatisc.js';
 
 export function setQuestionDOM(selectObjectId = Number, trueAnswer = String, state = Boolean) {
     if (state) {
