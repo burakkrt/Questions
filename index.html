@@ -15,9 +15,10 @@
         <title>Questions</title>
     </head>
     <body>
-        <div class="relative flex h-screen flex-row overflow-hidden">
-            <!-- sorular content -->
+        <div class="relative flex min-h-screen flex-row overflow-hidden">
+            <!-- main content -->
             <div class="relative flex-auto overflow-y-scroll bg-slate-400" id="content">
+                <!-- menu -->
                 <div class="sticky top-0 z-10 flex-row bg-slate-200 p-3" id="questionFilters" style="min-height: 5rem">
                     <div class="grid grid-cols-5 gap-y-2 text-center">
                         <div class="">
@@ -39,6 +40,33 @@
                         <div class="">
                             <span>Unsolved:</span>
                             <span id="totalUnsolved">0</span>
+                        </div>
+                        <div class="col-span-2 my-auto">
+                            <select
+                                class="w-max rounded-md border-2 border-stone-300 bg-slate-100 py-1 pl-1 pr-3 text-slate-700"
+                                name="questionType"
+                                id="questionType"
+                            >
+                                <option value="" selected disabled hidden>Select question category</option>
+                                <option value="numbers-alphabet">Numbers and Alphabet</option>
+                                <option value="greeting-farewell">Greeting Farewell</option>
+                                <option value="situation-ask">Situation Ask</option>
+                                <option value="to-meet">To Meet</option>
+                                <option value="days-months-years">Days, Months, Years</option>
+                            </select>
+                            <input
+                                class="rounded-md border-2 border-stone-300 bg-slate-100 py-1 pl-1 pr-3 text-slate-700"
+                                type="number"
+                                name="questionNumbers"
+                                id="questionNumbers"
+                                style="max-width: 5rem"
+                            />
+                            <button
+                                class="rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-green-600 hover:text-slate-200"
+                                onclick="createdQuestions(questionType,questionNumbers)"
+                            >
+                                Create
+                            </button>
                         </div>
                         <div class="col-span-2 col-start-3 my-auto">
                             <select
@@ -68,16 +96,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- question content -->
                 <div class="grid gap-3 p-3 xl:grid-cols-2" id="questionContent"></div>
-            </div>
-            <!-- menu -->
-            <div class="min-w-sm flex-none bg-red-300 px-3" id="menu">
-                <div class="block py-4 pr-5 text-right">
-                    <button id="burgerMenu">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                </div>
-                <div id="menuContent"></div>
             </div>
             <!-- message box -->
             <div
