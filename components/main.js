@@ -52,6 +52,7 @@ function deleteQuestion(objectId) {
 
     if (document.getElementById(objectId)) {
         if (document.getElementById(objectId)) {
+            document.getElementById(objectId).classList.add('pointer-events-none');
             let thisQuestion = document.getElementById(objectId);
             let countOpacity = 9;
 
