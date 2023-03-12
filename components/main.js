@@ -71,24 +71,35 @@ function deleteQuestion(objectId) {
 }
 
 function showQuestionsFilter(selectedView) {
-    switch (selectedView.value) {
-        case 'view-all-questions':
-            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, 'all');
-            break;
-        case 'view-unsolved':
-            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, null);
-            break;
-        case 'view-wrong':
-            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, false);
-            break;
-        case 'view-correct':
-            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, true);
-            break;
-    }
+    if (JSON.parse(localStorage.getItem('questions'))) {
+        switch (selectedView.value) {
+            case 'view-all-questions':
+                questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, 'all');
+                break;
+            case 'view-unsolved':
+                questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, null);
+                break;
+            case 'view-wrong':
+                questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, false);
+                break;
+            case 'view-correct':
+                questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement, true);
+                break;
+        }
+    } else Message('First you have to create a question.');
 }
 
 function deleteAllQuestions() {
-    localStorage.removeItem('questions');
+    if (JSON.parse(localStorage.getItem('questions'))) {
+        if (confirm('Permanently delete all questions?\n(Deleted questions cannot be restored.)')) {
+            localStorage.removeItem('questions');
+            questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement);
+            updatedStatisc();
+            Message('All questions have been deleted successfully.');
+        } else {
+            Message('The deletion has been cancelled.');
+        }
+    } else Message('First you have to create a question.');
 }
 
 updatedStatisc();
