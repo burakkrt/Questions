@@ -1,4 +1,3 @@
-import MenuItems from './menuItems.js';
 import QuestionObject from './questionObject.js';
 import CreateCheck from './questionCreateCheck.js';
 import questionDOM from './questionDOM.js';
@@ -20,13 +19,13 @@ window.deleteAllQuestions = deleteAllQuestions;
 const menuElement = document.querySelector('#menuContent');
 const questionContentElement = document.getElementById('questionContent');
 const mainContentElement = document.getElementById('content');
-// Menu Item Created
-MenuItems(menuElement);
 // Created Question and Export to DOM
-function createdQuestions(questionTitle) {
-    const checkResult = CreateCheck(questionTitle);
+function createdQuestions(questionTypeSelect, questionNumbersInput) {
+    const checkResult = CreateCheck(questionTypeSelect, questionNumbersInput);
     if (checkResult.check) {
-        QuestionObject(questionTitle, checkResult.questionNumber, checkResult.type, questionContentElement);
+        QuestionObject(checkResult.questionTitle, checkResult.questionNumber, checkResult.type, questionContentElement);
+        questionNumbersInput.value = '';
+        questionTypeSelect.value = '';
     }
 }
 // Questios Local Stroage Export Dom Content
@@ -103,31 +102,3 @@ function deleteAllQuestions() {
 }
 
 updatedStatisc();
-
-document.querySelector('#burgerMenu').addEventListener('click', () => {
-    const menu = document.querySelector('#menu');
-    const menuConttent = document.querySelector('#menuContent');
-    const burgerMenu = document.querySelector('#burgerMenu');
-
-    if (menu.className.includes('max-w-md')) {
-        let newClass = menu.className.replace('max-w-md', 'w-16');
-        menu.classList = newClass;
-    } else if (menu.className.includes('w-16')) {
-        let newClass = menu.className.replace('w-16', 'max-w-md');
-        menu.classList = newClass;
-    }
-
-    if (!menuConttent.getAttribute('class').includes('hidden')) {
-        menuConttent.classList.add('hidden');
-    } else menuConttent.classList.remove('hidden');
-
-    if (burgerMenu.parentElement.className.includes('text-right')) {
-        let newClass = burgerMenu.parentElement.className.replace('text-right', 'text-center');
-        burgerMenu.parentElement.classList = newClass;
-        burgerMenu.parentElement.classList.remove('pr-5');
-    } else {
-        let newClass = burgerMenu.parentElement.className.replace('text-center', 'text-right');
-        burgerMenu.parentElement.classList = newClass;
-        burgerMenu.parentElement.classList.add('pr-5');
-    }
-});
