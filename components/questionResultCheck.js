@@ -1,3 +1,4 @@
+import Message from './message.js';
 import setLocalStroage from './setLocalStorage.js';
 
 export function setQuestionDOM(selectObjectId = Number, trueAnswer = String, state = Boolean) {
@@ -30,13 +31,18 @@ export default function questionResultCheck(selectObjectId, userValue) {
     let modifiedUserAnswer = userValue.replace(/[ !"#$%&'()*+,-./:;<=>?@[_`{|}~']/g, '').toLowerCase();
     let trueAnswer = selectObject.answer.replace(/[ !"#$%&'()*+,-./:;<=>?@[_`{|}~']/g, '').toLowerCase();
 
-    if (modifiedUserAnswer === trueAnswer) {
-        setLocalStroage(selectObject, true);
-        setQuestionDOM(selectObject.objectId, selectObject.answer, true);
-        return true;
+    if (modifiedUserAnswer !== '') {
+        if (modifiedUserAnswer === trueAnswer) {
+            setLocalStroage(selectObject, true);
+            setQuestionDOM(selectObject.objectId, selectObject.answer, true);
+            return true;
+        } else {
+            setLocalStroage(selectObject, false, userValue);
+            setQuestionDOM(selectObject.objectId, selectObject.answer, false);
+            return false;
+        }
     } else {
-        setLocalStroage(selectObject, false, userValue);
-        setQuestionDOM(selectObject.objectId, selectObject.answer, false);
-        return false;
+        Message('You must write an answer first.');
+        document.getElementById(`input${selectObjectId}`).focus();
     }
 }
