@@ -6,6 +6,7 @@ module.exports = {
         './**/components/main.js',
         './**/components/questionDOM.js',
         './**/components/questionVisibleAnswer.js',
+        './**/components/questionCreateCheck.js',
     ],
     theme: {
         extend: {},
