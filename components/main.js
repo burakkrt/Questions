@@ -29,7 +29,7 @@ function createdQuestions(questionTypeSelect, questionNumbersInput) {
     }
 }
 // Questios Local Stroage Export Dom Content
-questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement);
+//questionDOM(JSON.parse(localStorage.getItem('questions')), questionContentElement);
 // User value check
 function resultCheck(objectId) {
     const userValue = document.getElementById(`input${objectId}`).value;

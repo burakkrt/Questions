@@ -227,5 +227,19 @@ export default function questionDOM(questionsArray, contentElement, resultType =
             }
         });
         updatedStatisc();
-    } else console.log('önce soru oluştur');
+    } else {
+        let element = `
+        <div class="col-span-2 text-center">
+            <p class="font-mono text-2xl uppercase text-zinc-700">
+                You have not created any questions yet.
+            </p>
+            <p>
+                You can create a question by selecting the type and quantity of questions you want to create
+                from the menu above.
+            </p>
+            <i class="fa-sharp fa-3x fa-solid fa-arrow-up text-state-500 "></i>
+        </div>
+        `;
+        contentElement.innerHTML += element;
+    }
 }

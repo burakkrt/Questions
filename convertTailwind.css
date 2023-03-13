@@ -16,10 +16,11 @@
     width: 150px;
 }
 
-.message-box.passive {
-    transform: translateX(101%);
-    bottom: 20px;
+.message-box {
+    transform: translateX(110%);
+    top: 10rem;
     right: 0px;
+    z-index: 22;
 }
 
 .message-box.active {
