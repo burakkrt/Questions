@@ -50,7 +50,7 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                         <div class="flex h-full flex-col">
                             <!-- card header -->
                             <div
-                                class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                                class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
                             >
                                 <div>
                                     <p>Question No : ${index + 1} (${question.objectId})</p>
@@ -59,11 +59,11 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                                     <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
                                         question.objectId
                                     })">
-                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
                                     </button>
                                     <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
                                         question.objectId
-                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
                                 </div>
                             </div>
                             <!-- card content -->
@@ -111,7 +111,7 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                         <div class="flex h-full flex-col">
                             <!-- card header -->
                             <div
-                                class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                                class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
                             >
                                 <div>
                                     <p>Question No : ${index + 1} (${question.objectId})</p>
@@ -120,11 +120,11 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                                     <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
                                         question.objectId
                                     })">
-                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
                                     </button>
                                     <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
                                         question.objectId
-                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
                                 </div>
                             </div>
                             <!-- card content -->
@@ -172,7 +172,7 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                     <div class="flex h-full flex-col">
                         <!-- card header -->
                         <div
-                            class="flex flex-row items-center justify-between rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
                         >
                             <div>
                                 <p>Question No : ${index + 1} (${question.objectId})</p>
@@ -181,11 +181,11 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                                 <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
                                     question.objectId
                                 })">
-                                    <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Cevabı Göster
+                                    <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
                                 </button>
                                 <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
                                     question.objectId
-                                })"><i class="fa-solid fa-circle-xmark mr-2"></i>Sil</button>
+                                })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
                             </div>
                         </div>
                         <!-- card content -->
@@ -229,17 +229,39 @@ export default function questionDOM(questionsArray, contentElement, resultType =
         updatedStatisc();
     } else {
         let element = `
-        <div class="col-span-2 text-center">
-            <p class="font-mono text-2xl uppercase text-zinc-700">
-                You have not created any questions yet.
-            </p>
-            <p>
-                You can create a question by selecting the type and quantity of questions you want to create
-                from the menu above.
-            </p>
-            <i class="fa-sharp fa-3x fa-solid fa-arrow-up text-state-500 "></i>
-        </div>
-        `;
+                <div class="absolute top-1/2 w-fit text-center text-slate-600 lg:w-full">
+                    <div class="mb-0 sm:mb-5 md:mb-12">
+                        <i class="fa-sharp fa-3x fa-solid fa-arrow-up animate-bounce text-slate-600"></i>
+                    </div>
+                    <p class="font-mono text-xl font-semibold uppercase sm:text-3xl">
+                        You have not created any questions yet.
+                    </p>
+                    <p class="font-mono text-lg">
+                        You can create a question by selecting the type and quantity of questions you want to create
+                        from the menu above.
+                    </p>
+                    <div class="mt-0 sm:mt-5 md:mt-12 flex justify-center gap-5">
+                        <a
+                            href="https://github.com/burakkrt/Questions-PureJavascript"
+                            target="_blank"
+                            class="my-auto rounded-md px-2 py-1 duration-150 hover:text-slate-700"
+                            ><i class="fa-brands fa-3x fa-square-github"></i
+                        ></a>
+                        <a
+                            href="https://www.linkedin.com/in/kurt-burak/"
+                            target="_blank"
+                            class="my-auto rounded-md px-2 py-1 duration-150 hover:text-slate-700"
+                            ><i class="fa-brands fa-3x fa-linkedin"></i
+                        ></a>
+                        <a
+                            href="mailto:krtburak@outlook.com"
+                            target="_blank"
+                            class="my-auto rounded-md px-2 py-1 duration-150 hover:text-slate-700"
+                            ><i class="fa-solid fa-3x fa-envelope"></i
+                        ></a>
+                    </div>
+                </div>
+            `;
         contentElement.innerHTML += element;
     }
 }
