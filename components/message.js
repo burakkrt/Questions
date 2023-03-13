@@ -17,7 +17,6 @@ export default function Message(value, element) {
         timeoutId = setTimeout(() => {
             if (messageBox.className.includes('active')) messageBox.classList.remove('active');
         }, 2000);
-        console.log('temizlendi');
     } else {
         messageBox.classList.add('active');
         timeoutId = setTimeout(() => {

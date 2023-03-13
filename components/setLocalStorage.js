@@ -16,7 +16,5 @@ export default function setLocalStroage(newObject, state, userAnswer = null) {
 
     //Update Local Storage
     localStorage.setItem('questions', JSON.stringify(localStroageObjects));
-    console.log('Updated Local Storage');
-    console.log(JSON.parse(localStorage.getItem('questions')));
     updatedStatisc();
 }
