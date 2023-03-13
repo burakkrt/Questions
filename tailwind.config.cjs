@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./**/*.html', './**/components/*.js'],
-    // content: ['./**/*.html', './**/components/filterStatisticsItems.js'],
+    // content: ['./**/*.html'],
+    content: [
+        './**/*.html',
+        './**/components/main.js',
+        './**/components/questionDOM.js',
+        './**/components/questionVisibleAnswer.js',
+    ],
     theme: {
         extend: {},
     },
