@@ -1,4 +1,5 @@
 import { Questions } from '../data.js';
+import Message from './message.js';
 import QuestionClass from './questionClass.js';
 import questionDOM from './questionDOM.js';
 
@@ -44,4 +45,6 @@ export default function ObjectsCreated(
     localStorage.setItem('questions', JSON.stringify(questionObjects));
     //Function to process all questions in memory to dom
     questionDOM(JSON.parse(localStorage.getItem('questions')), contentElement);
+    // Finish message
+    Message(`${questionNumber} questions were successfully created in the ${dataName} category.`);
 }
