@@ -35,136 +35,12 @@ function returnInputValue(question) {
     } else return;
 }
 
-export default function questionDOM(questionsArray, contentElement, resultType = 'all') {
-    contentElement.innerHTML = '';
-
-    if (questionsArray && questionsArray.length > 0) {
-        questionsArray.map((question, index) => {
-            console.log(question);
-
+function tt(questionsArray, contentElement, resultType) {
+    const nowQuestionNumber = contentElement.children.length;
+    const newQuestionNumber = nowQuestionNumber + 10;
+    questionsArray.map((question, index) => {
+        if (index >= nowQuestionNumber && index < newQuestionNumber) {
             if (resultType == question.resultState) {
-                let element = `
-                    <!-- col -->
-                    <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
-                        <!-- card -->
-                        <div class="flex h-full flex-col">
-                            <!-- card header -->
-                            <div
-                                class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
-                            >
-                                <div>
-                                    <p>Question No : ${index + 1} (${question.objectId})</p>
-                                </div>
-                                <div>
-                                    <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
-                                        question.objectId
-                                    })">
-                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
-                                    </button>
-                                    <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
-                                        question.objectId
-                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
-                                </div>
-                            </div>
-                            <!-- card content -->
-                            <div class="flex-auto p-2">
-                                <div class="flex h-full flex-col justify-between gap-y-5">
-                                    <div>
-                                        <div>
-                                            <span class="font-medium">Question :</span>
-                                            <p class="inline">${question.question}</p>
-                                        </div>
-                                        ${createTurkishElement(question.questionTurkish)}
-                                    </div>
-                                    <div id="resultDiv${question.objectId}">
-                                    ${createTurkishElement(question.answerTurkish)}
-                                        <div class="flex flex-row content-center items-center gap-x-3">
-                                            <span class="font-medium">Answer :</span>
-                                            <input class="user-answer ${
-                                                question.resultState
-                                            } flex-auto px-1 text-slate-900" type="text" id="input${
-                    question.objectId
-                }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
-                                            <button
-                                            class="reply-button ${
-                                                question.resultState
-                                            } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
-                                                onclick="resultCheck(${question.objectId})"
-                                            >
-                                                Reply
-                                            </button>
-                                        </div>
-                                        ${returnAnswer(question)}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  `;
-                contentElement.innerHTML += element;
-            } else if (resultType === null) {
-                if (question.resultState === null) {
-                    let element = `
-                    <!-- col -->
-                    <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
-                        <!-- card -->
-                        <div class="flex h-full flex-col">
-                            <!-- card header -->
-                            <div
-                                class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
-                            >
-                                <div>
-                                    <p>Question No : ${index + 1} (${question.objectId})</p>
-                                </div>
-                                <div>
-                                    <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
-                                        question.objectId
-                                    })">
-                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
-                                    </button>
-                                    <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
-                                        question.objectId
-                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
-                                </div>
-                            </div>
-                            <!-- card content -->
-                            <div class="flex-auto p-2">
-                                <div class="flex h-full flex-col justify-between gap-y-5">
-                                    <div>
-                                        <div>
-                                            <span class="font-medium">Question :</span>
-                                            <p class="inline">${question.question}</p>
-                                        </div>
-                                        ${createTurkishElement(question.questionTurkish)}
-                                    </div>
-                                    <div id="resultDiv${question.objectId}">
-                                    ${createTurkishElement(question.answerTurkish)}
-                                        <div class="flex flex-row content-center items-center gap-x-3">
-                                            <span class="font-medium">Answer :</span>
-                                            <input class="user-answer ${
-                                                question.resultState
-                                            } flex-auto px-1 text-slate-900" type="text" id="input${
-                        question.objectId
-                    }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
-                                            <button
-                                            class="reply-button ${
-                                                question.resultState
-                                            } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
-                                                onclick="resultCheck(${question.objectId})"
-                                            >
-                                                Reply
-                                            </button>
-                                        </div>
-                                        ${returnAnswer(question)}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  `;
-                    contentElement.innerHTML += element;
-                }
-            } else if (resultType === 'all') {
                 let element = `
                 <!-- col -->
                 <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
@@ -224,8 +100,336 @@ export default function questionDOM(questionsArray, contentElement, resultType =
                 </div>
               `;
                 contentElement.innerHTML += element;
+            } else if (resultType === null) {
+                if (question.resultState === null) {
+                    let element = `
+                <!-- col -->
+                <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
+                    <!-- card -->
+                    <div class="flex h-full flex-col">
+                        <!-- card header -->
+                        <div
+                            class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                        >
+                            <div>
+                                <p>Question No : ${index + 1} (${question.objectId})</p>
+                            </div>
+                            <div>
+                                <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
+                                    question.objectId
+                                })">
+                                    <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
+                                </button>
+                                <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
+                                    question.objectId
+                                })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
+                            </div>
+                        </div>
+                        <!-- card content -->
+                        <div class="flex-auto p-2">
+                            <div class="flex h-full flex-col justify-between gap-y-5">
+                                <div>
+                                    <div>
+                                        <span class="font-medium">Question :</span>
+                                        <p class="inline">${question.question}</p>
+                                    </div>
+                                    ${createTurkishElement(question.questionTurkish)}
+                                </div>
+                                <div id="resultDiv${question.objectId}">
+                                ${createTurkishElement(question.answerTurkish)}
+                                    <div class="flex flex-row content-center items-center gap-x-3">
+                                        <span class="font-medium">Answer :</span>
+                                        <input class="user-answer ${
+                                            question.resultState
+                                        } flex-auto px-1 text-slate-900" type="text" id="input${
+                        question.objectId
+                    }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
+                                        <button
+                                        class="reply-button ${
+                                            question.resultState
+                                        } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                            onclick="resultCheck(${question.objectId})"
+                                        >
+                                            Reply
+                                        </button>
+                                    </div>
+                                    ${returnAnswer(question)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              `;
+                    contentElement.innerHTML += element;
+                }
+            } else if (resultType === 'all') {
+                let element = `
+            <!-- col -->
+            <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
+                <!-- card -->
+                <div class="flex h-full flex-col">
+                    <!-- card header -->
+                    <div
+                        class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                    >
+                        <div>
+                            <p>Question No : ${index + 1} (${question.objectId})</p>
+                        </div>
+                        <div>
+                            <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
+                                question.objectId
+                            })">
+                                <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
+                            </button>
+                            <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
+                                question.objectId
+                            })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
+                        </div>
+                    </div>
+                    <!-- card content -->
+                    <div class="flex-auto p-2">
+                        <div class="flex h-full flex-col justify-between gap-y-5">
+                            <div>
+                                <div>
+                                    <span class="font-medium">Question :</span>
+                                    <p class="inline">${question.question}</p>
+                                </div>
+                                ${createTurkishElement(question.questionTurkish)}
+                            </div>
+                            <div id="resultDiv${question.objectId}">
+                            ${createTurkishElement(question.answerTurkish)}
+                                <div class="flex flex-row content-center items-center gap-x-3">
+                                    <span class="font-medium">Answer :</span>
+                                    <input class="user-answer ${
+                                        question.resultState
+                                    } flex-auto px-1 text-slate-900" type="text" id="input${
+                    question.objectId
+                }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
+                                    <button
+                                    class="reply-button ${
+                                        question.resultState
+                                    } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                        onclick="resultCheck(${question.objectId})"
+                                    >
+                                        Reply
+                                    </button>
+                                </div>
+                                ${returnAnswer(question)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          `;
+                contentElement.innerHTML += element;
+            }
+        }
+    });
+    if (nowQuestionNumber < contentElement.children.length) {
+        console.log(`${nowQuestionNumber} ile ${contentElement.children.length} arası sorular yüklendi.`);
+    } else console.log(`Soruların tamamı şuan gösteriliyor.`);
+}
+
+export default function questionDOM(questionsArray, contentElement, resultType = 'all') {
+    contentElement.innerHTML = '';
+
+    if (questionsArray && questionsArray.length > 0) {
+        questionsArray.map((question, index) => {
+            if (index < 50) {
+                if (resultType == question.resultState) {
+                    let element = `
+                    <!-- col -->
+                    <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
+                        <!-- card -->
+                        <div class="flex h-full flex-col">
+                            <!-- card header -->
+                            <div
+                                class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            >
+                                <div>
+                                    <p>Question No : ${index + 1} (${question.objectId})</p>
+                                </div>
+                                <div>
+                                    <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
+                                        question.objectId
+                                    })">
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
+                                    </button>
+                                    <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
+                                        question.objectId
+                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
+                                </div>
+                            </div>
+                            <!-- card content -->
+                            <div class="flex-auto p-2">
+                                <div class="flex h-full flex-col justify-between gap-y-5">
+                                    <div>
+                                        <div>
+                                            <span class="font-medium">Question :</span>
+                                            <p class="inline">${question.question}</p>
+                                        </div>
+                                        ${createTurkishElement(question.questionTurkish)}
+                                    </div>
+                                    <div id="resultDiv${question.objectId}">
+                                    ${createTurkishElement(question.answerTurkish)}
+                                        <div class="flex flex-row content-center items-center gap-x-3">
+                                            <span class="font-medium">Answer :</span>
+                                            <input class="user-answer ${
+                                                question.resultState
+                                            } flex-auto px-1 text-slate-900" type="text" id="input${
+                        question.objectId
+                    }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
+                                            <button
+                                            class="reply-button ${
+                                                question.resultState
+                                            } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                                onclick="resultCheck(${question.objectId})"
+                                            >
+                                                Reply
+                                            </button>
+                                        </div>
+                                        ${returnAnswer(question)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  `;
+                    contentElement.innerHTML += element;
+                } else if (resultType === null) {
+                    if (question.resultState === null) {
+                        let element = `
+                    <!-- col -->
+                    <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
+                        <!-- card -->
+                        <div class="flex h-full flex-col">
+                            <!-- card header -->
+                            <div
+                                class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                            >
+                                <div>
+                                    <p>Question No : ${index + 1} (${question.objectId})</p>
+                                </div>
+                                <div>
+                                    <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
+                                        question.objectId
+                                    })">
+                                        <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
+                                    </button>
+                                    <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
+                                        question.objectId
+                                    })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
+                                </div>
+                            </div>
+                            <!-- card content -->
+                            <div class="flex-auto p-2">
+                                <div class="flex h-full flex-col justify-between gap-y-5">
+                                    <div>
+                                        <div>
+                                            <span class="font-medium">Question :</span>
+                                            <p class="inline">${question.question}</p>
+                                        </div>
+                                        ${createTurkishElement(question.questionTurkish)}
+                                    </div>
+                                    <div id="resultDiv${question.objectId}">
+                                    ${createTurkishElement(question.answerTurkish)}
+                                        <div class="flex flex-row content-center items-center gap-x-3">
+                                            <span class="font-medium">Answer :</span>
+                                            <input class="user-answer ${
+                                                question.resultState
+                                            } flex-auto px-1 text-slate-900" type="text" id="input${
+                            question.objectId
+                        }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
+                                            <button
+                                            class="reply-button ${
+                                                question.resultState
+                                            } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                                onclick="resultCheck(${question.objectId})"
+                                            >
+                                                Reply
+                                            </button>
+                                        </div>
+                                        ${returnAnswer(question)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  `;
+                        contentElement.innerHTML += element;
+                    }
+                } else if (resultType === 'all') {
+                    let element = `
+                <!-- col -->
+                <div class="question-box ${question.resultState} rounded-md bg-slate-300" id="${question.objectId}">
+                    <!-- card -->
+                    <div class="flex h-full flex-col">
+                        <!-- card header -->
+                        <div
+                            class="flex flex-col items-center justify-between gap-y-1 lg:flex-row xl:gap-y-0 rounded-t-md bg-zinc-700 p-2 text-stone-200"
+                        >
+                            <div>
+                                <p>Question No : ${index + 1} (${question.objectId})</p>
+                            </div>
+                            <div>
+                                <button class="mr-2 duration-200 hover:text-yellow-400 focus:text-yellow-400" onclick="visibleAnswer(${
+                                    question.objectId
+                                })">
+                                    <i class="fa-sharp fa-solid fa-bolt mr-2"></i>Show Answer
+                                </button>
+                                <button class="hover:text-red-400 focus:text-red-400 duration-200" onclick="deleteQuestion(${
+                                    question.objectId
+                                })"><i class="fa-solid fa-circle-xmark mr-2"></i>Delete</button>
+                            </div>
+                        </div>
+                        <!-- card content -->
+                        <div class="flex-auto p-2">
+                            <div class="flex h-full flex-col justify-between gap-y-5">
+                                <div>
+                                    <div>
+                                        <span class="font-medium">Question :</span>
+                                        <p class="inline">${question.question}</p>
+                                    </div>
+                                    ${createTurkishElement(question.questionTurkish)}
+                                </div>
+                                <div id="resultDiv${question.objectId}">
+                                ${createTurkishElement(question.answerTurkish)}
+                                    <div class="flex flex-row content-center items-center gap-x-3">
+                                        <span class="font-medium">Answer :</span>
+                                        <input class="user-answer ${
+                                            question.resultState
+                                        } flex-auto px-1 text-slate-900" type="text" id="input${
+                        question.objectId
+                    }" ${returnInputValue(question)} onkeypress="keyPressInput(event,${question.objectId})"/>
+                                        <button
+                                        class="reply-button ${
+                                            question.resultState
+                                        } rounded-md bg-slate-400 px-4 py-1 text-base text-slate-700 duration-150 hover:bg-slate-500 hover:text-slate-200"
+                                            onclick="resultCheck(${question.objectId})"
+                                        >
+                                            Reply
+                                        </button>
+                                    </div>
+                                    ${returnAnswer(question)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              `;
+                    contentElement.innerHTML += element;
+                }
             }
         });
+
+        window.onscroll = () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+                if (questionsArray.length > 50) {
+                    tt(questionsArray, contentElement, resultType);
+                }
+            }
+        };
+
         updatedStatisc();
     } else {
         let element = `
