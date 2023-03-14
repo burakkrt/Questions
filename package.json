@@ -5,7 +5,6 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind": "tailwindcss -i convertTailwind.css -o components/style.css --watch"
   },
   "repository": {
