@@ -10,7 +10,7 @@ function focusInput(element) {
 }
 
 export default function Message(value, element) {
-    messageContent.textContent = value;
+    messageContent.innerHTML = `<span><i class="fa-sharp fa-solid fa-circle-exclamation mr-2"></i>${value}</span>`;
     focusInput(element);
     if (messageBox.className.includes('active')) {
         clearTimeout(timeoutId);
