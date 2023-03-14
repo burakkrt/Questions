@@ -1,5 +1,4 @@
 const messageBox = document.getElementById('messageBox');
-const messageContent = messageBox.children[0];
 let timeoutId;
 
 function focusInput(element) {
@@ -10,7 +9,7 @@ function focusInput(element) {
 }
 
 export default function Message(value, element) {
-    messageContent.innerHTML = `<span><i class="fa-sharp fa-solid fa-circle-exclamation mr-2"></i>${value}</span>`;
+    messageBox.innerHTML = `<span><i class="fa-sharp fa-solid fa-circle-exclamation mr-2"></i>${value}</span>`;
     focusInput(element);
     if (messageBox.className.includes('active')) {
         clearTimeout(timeoutId);
