@@ -24,7 +24,7 @@
 }
 
 .message-box.active {
-    transform: translateX(-2%);
+    transform: translateX(0%);
 }
 
 .question-box {
