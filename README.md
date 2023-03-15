@@ -39,12 +39,6 @@ Install required packages
   npm install
 ```
 
-Run Tailwind CSS
-
-```bash
-  npm run tailwind
-```
-
 Finally, you can edit on your local server.
 
 ## Optimization
