@@ -63,7 +63,6 @@ function deleteQuestion(objectId) {
                 } else {
                     document.getElementById(objectId).style = `opacity : 0.${countOpacity}`;
                     countOpacity--;
-                    console.log(countOpacity);
                 }
             }, 65);
         }
