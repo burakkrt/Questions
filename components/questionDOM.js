@@ -226,8 +226,8 @@ function tt(questionsArray, contentElement, resultType) {
         }
     });
     if (nowQuestionNumber < contentElement.children.length) {
-        console.log(`${nowQuestionNumber} ile ${contentElement.children.length} arası sorular yüklendi.`);
-    } else console.log(`Soruların tamamı şuan gösteriliyor.`);
+        console.log(`${nowQuestionNumber} to ${contentElement.children.length} questions were loaded.`);
+    } else console.log(`All questions are shown.`);
 }
 
 export default function questionDOM(questionsArray, contentElement, resultType = 'all') {
