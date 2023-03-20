@@ -16,9 +16,7 @@ window.keyPressInput = keyPressInput;
 window.showQuestionsFilter = showQuestionsFilter;
 window.deleteAllQuestions = deleteAllQuestions;
 // Element variables
-const menuElement = document.querySelector('#menuContent');
 const questionContentElement = document.getElementById('questionContent');
-const mainContentElement = document.getElementById('content');
 // Created Question and Export to DOM
 function createdQuestions(questionTypeSelect, questionNumbersInput) {
     const checkResult = CreateCheck(questionTypeSelect, questionNumbersInput);
