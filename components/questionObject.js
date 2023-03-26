@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2023.
+ * You can access the source files from my github account. >> https://github.com/burakkrt/Questions-VanillaJavascript
+ * Write me for cooperation or questions about the project. >> krtburak@outlook.com
+ */
+
 import { Questions } from '../data.js';
 import Message from './message.js';
 import QuestionClass from './questionClass.js';

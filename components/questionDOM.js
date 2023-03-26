@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2023.
+ * You can access the source files from my github account. >> https://github.com/burakkrt/Questions-VanillaJavascript
+ * Write me for cooperation or questions about the project. >> krtburak@outlook.com
+ */
+
 import updatedStatisc from './updatedStatisc.js';
 
 function createTurkishElement(value, valueType) {
