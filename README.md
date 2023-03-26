@@ -13,7 +13,7 @@ In addition, with Local Storage, the data is stored in JSON type and allows the 
 [**Go Live**](https://burakkrt.github.io/Questions-VanillaJavascript/)
 ## Technologies used and dependencies
 
-- [**Javascript**](https://www.javascript.com) ES5, ES6 (Class)
+- [**Javascript**](https://www.javascript.com) ES6
 - [**Tailwind CSS**](https://tailwindcss.com) 3.2.7
 - [**Prettier**](https://prettier.io) 2.8.4 (Prettier Plugin Tailwindcss 0.2.4)
 
