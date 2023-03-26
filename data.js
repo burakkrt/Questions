@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2023.
+ * You can access the source files from my github account. >> https://github.com/burakkrt/Questions-VanillaJavascript
+ * Write me for cooperation or questions about the project. >> krtburak@outlook.com
+ */
+
 export const Questions = {
   "numbers-alphabet" : [
     {id:0,  question:"Zero, Two, Sixteen",           answer:"0, 2, 16",   questionTurkish:"Zirou, Tu, Sikstiin",       answerTurkish:""},
